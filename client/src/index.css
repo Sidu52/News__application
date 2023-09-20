@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Montserrat:wght@200;400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+}

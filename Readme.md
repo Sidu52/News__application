@@ -1,3 +1,6 @@
+## Live Link ##
+https://650c5b7d40025640602aa891--bucolic-dasik-82ae66.netlify.app/
+
 ## News Application with User Authentication
 This is a web application that provides user authentication and displays news articles using the GNews API. Users can sign up, sign in, and view the latest news articles from various sources.
 

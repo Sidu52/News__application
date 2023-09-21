@@ -37,11 +37,10 @@
         align-items: center;
         justify-content: flex-end;
 
-        img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid black;
+        svg {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
         }
 
         div {

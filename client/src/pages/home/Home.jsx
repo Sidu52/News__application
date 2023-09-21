@@ -11,7 +11,6 @@ function Home() {
     useEffect(() => {
         async function fetchData() {
             try {
-                console.log("1")
                 const response = await axios.get(
                     `http://localhost:9000`,
                     {
@@ -20,8 +19,6 @@ function Home() {
                         }
                     }
                 );
-                console.log("2", response.data)
-
                 if (!response.data.action) {
                     console.log("3")
                     navigate('/login')

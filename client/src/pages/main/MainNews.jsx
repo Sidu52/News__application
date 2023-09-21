@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SlideShow from '../../component/slideNews/SlideNews';
 import axios from 'axios';
+import { AiOutlineHeart } from 'react-icons/ai';
 import '../../assets/css/component/MainNews.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +11,10 @@ function MainNews() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const News = useSelector((state) => state.news);
-    const apikey = '9f1494d25928a0f2c095a21c4afc7424';
-    const url = 'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=99&apikey=' + apikey;
-    // const url = "https://newsapi.org/v2/everything?q=tesla&from=2023-08-20&sortBy=publishedAt&apiKey=d3268d123d5d47959d6d0969d4786bc3";
+    // const apikey = '9f1494d25928a0f2c095a21c4afc7424';
+    const apikey = 'e6471d8f083a0942d44660785f4ad598';
+    // const url = 'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=99&apikey=' + apikey;
+    const url = "https://newsapi.org/v2/everything?q=tesla&from=2023-08-20&sortBy=publishedAt&apiKey=d3268d123d5d47959d6d0969d4786bc3";
 
     const [currentPage, setCurrentPage] = useState(1);
     const [slide, setSlides] = useState([]);
@@ -62,6 +64,17 @@ function MainNews() {
             </button>
         );
     }
+    const handleCart = async (item) => {
+        try {
+            const response = await axios.post('http://localhost:9000/cart', item);
+            const user = response.data.user;
+
+
+        } catch (error) {
+            console.log('Sign in failed', error);
+        }
+
+    }
     const handleClick = ((item) => {
         dispatch(addtodata(item));
         navigate('/newspage');
@@ -93,6 +106,7 @@ function MainNews() {
             <div className='card_main_contaienr'>
                 {News.slice(startIndex, endIndex).map((item, index) => (
                     <div key={index} className='card_container'>
+                        <AiOutlineHeart onClick={(() => { handleCart(item) })} />
                         <h4>{item.name}</h4>
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>

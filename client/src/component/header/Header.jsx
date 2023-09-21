@@ -5,6 +5,7 @@ import { addtonews } from '../../store/Store';
 import { Link, useNavigate } from 'react-router-dom';
 import profile from '../../assets/image_video/profile.png';
 import '../../assets/css/component/Header.scss';
+import { FiShoppingCart } from 'react-icons/fi';
 
 // const url = `https://gnews.io/api/v4/top-headlines?category=${value}&apikey=9f1494d25928a0f2c095a21c4afc7424`; //GNEws
 // const urls= `https://newsapi.org/v2/top-headlines?country=us&category=${value}&apiKey=d3268d123d5d47959d6d0969d4786bc3` //NEwsAPI
@@ -18,10 +19,12 @@ function Header() {
     //Get data from localStorge
     const user = localStorage.getItem('user');
 
-    // Define the handle_news function
+    // Define the handle_news function   
+    // const apikey=  9f1494d25928a0f2c095a21c4afc7424
+    // const apiKey = "e6471d8f083a0942d44660785f4ad598"
     const handle_news = async (value) => {
         try {
-            const response = await axios.get(`https://gnews.io/api/v4/top-headlines?category=${value}&apikey=9f1494d25928a0f2c095a21c4afc7424`);
+            const response = await axios.get(`https://gnews.io/api/v4/top-headlines?category=${value}&apikey=${apiKey}`);
             const data = response.data;
             const articles = data.articles;
 
@@ -60,7 +63,7 @@ function Header() {
                 <div className="right_container">
                     <div>
                         <Link onClick={handlelogout} className='first' >Logout</Link>
-                        <img src={profile} alt="profile" />
+                        <FiShoppingCart onClick={(() => navigate('/cart'))} />
                     </div>
                 </div>
             }

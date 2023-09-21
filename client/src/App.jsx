@@ -4,6 +4,7 @@ import Signup from './pages/signup/Signup';
 import SignIn from './pages/signup/SignIn';
 import Home from './pages/home/home';
 import NewsPage from './pages/newspage/NewsPage';
+import Saved from './pages/saved/Saved';
 import './assets/css/pages/SignInUp.scss';
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/login" element={<SignIn />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/newspage" element={<NewsPage />} />
+          <Route path="/cart" element={<Saved />} />
         </Routes>
       </BrowserRouter>
     </div>

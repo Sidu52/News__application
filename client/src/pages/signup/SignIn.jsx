@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import video from '../../assets/image_video/videologin.mp4';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { endPoint } from '../../api';
 
 function SignIn() {
     const [form, setForm] = useState({ email: '', password: '' });

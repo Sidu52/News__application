@@ -41,6 +41,11 @@ PORT=8000
 MONGODB_URI=mongodb://localhost/newsdb
 SECRET_KEY=your-secret-key
 
+## Create a api.js in the client src directory and add the follwing
+api.js
+url   - https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=99&apikey=----apiKey----'
+categoryUrl  - `https://gnews.io/api/v4/top-headlines?category=`
+api   - GNewsAPI
 ## Usage
 Register a new user account by clicking the "Sign Up" link on the login page.
 

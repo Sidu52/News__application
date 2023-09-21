@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import video from '../../assets/image_video/videoSignup.mp4';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { endPoint } from '../../api';
 
 function Signup() {
     const [form, setForm] = useState({ username: '', email: '', password: '', confirm_password: '' }); // Changed 'confom_password' to 'confirm_password'
@@ -13,7 +14,7 @@ function Signup() {
         try {
             if (form.password === form.confirm_password) { // Changed 'confom_password' to 'confirm_password'
                 // Send a POST request to the server for user signup
-                const response = await axios.post('http://localhost:9000/register', {
+                const response = await axios.post(`${endPoint}register`, {
                     username: form.username,
                     email: form.email,
                     password: form.password,

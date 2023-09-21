@@ -3,6 +3,7 @@ import Header from '../../component/header/Header'
 import MainNews from '../main/MainNews';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { endPoint } from '../../api';
 function Home() {
     const navigate = useNavigate();
     //Get data from localStorge
@@ -12,7 +13,7 @@ function Home() {
         async function fetchData() {
             try {
                 const response = await axios.get(
-                    `http://localhost:9000`,
+                    endPoint,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`

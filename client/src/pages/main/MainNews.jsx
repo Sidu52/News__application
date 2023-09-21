@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addtonews, addtodata } from '../../store/Store';
 import { url } from '../../api';
+import { endPoint } from '../../api';
 
 function MainNews() {
     const navigate = useNavigate();
@@ -66,7 +67,7 @@ function MainNews() {
     }
     const handleCart = async (item) => {
         try {
-            const response = await axios.post('http://localhost:9000/cart', item);
+            const response = await axios.post(`${endPoint}cart`, item);
             alert(response.data.message)
 
         } catch (error) {

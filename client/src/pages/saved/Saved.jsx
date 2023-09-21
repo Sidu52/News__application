@@ -4,7 +4,8 @@ import axios from 'axios';
 import Header from '../../component/header/Header';
 import { IoMdRemoveCircleOutline } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartNews,removeNews } from '../../store/Store';
+import { cartNews, removeNews } from '../../store/Store';
+import { endPoint } from '../../api';
 
 function Saved() {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function Saved() {
         async function fetchData() {
             try {
                 const response = await axios.get(
-                    `http://localhost:9000/getNews`,
+                    `${endPoint}getNews`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -38,7 +39,7 @@ function Saved() {
         try {
             dispatch(removeNews(item));
             const response = await axios.post(
-                'http://localhost:9000/newsDelete',
+                `${endPoint}newsDelete`,
                 item, // Move the item data to here
                 {
                     headers: {
@@ -46,7 +47,7 @@ function Saved() {
                     }
                 }
             );
-            
+
         } catch (error) {
             console.log('Delete news failed', error);
         }
